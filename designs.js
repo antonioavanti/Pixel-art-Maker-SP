@@ -1,5 +1,5 @@
 // Select color input
-let selector = document.getElementById("colorpicker");
+let selector = document.getElementById("colorpicker").value;
 let submit = document.getElementById("sizePicker");
 
 // Select size input
@@ -34,4 +34,19 @@ function setColor(color) {
 	color = selector.val();
 	return color;
 }
+
+/* Create rows and columns
+createElement() <tr> <td>- nested loop
+inserRow() insertCell() -- nested loop
+
+//choosing a color
+/* fetch color from color picker getElementById ("colorpicker").value
+browser evernt called 'change'
+browser event called 'click'
+
+
+//updating or reseting
+same rows and columns --> paint all cell white
+--> diifferent rows and columns --> remove all elements and create the table again
+*/
 

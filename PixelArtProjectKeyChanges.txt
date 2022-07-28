@@ -1,0 +1,12 @@
+1. Create Rows and Columns
+--> createElement(); // <tr> <td> - Nested Loop
+--> insertRow(); insertCell(); // Nested Loop
+
+2. Chose a color, color a particular color
+--> fetch color from color picker // getElementById("colorPicker").value;
+--> browser event called 'change'
+--> browser event called 'click' // have a browser event for all cells // event.target
+
+3. Updating/Resetting the grid
+--> same rows and columns --> paint all your cells white
+--> different rows and columns --> remove all elements from the table and create the table again
