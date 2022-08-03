@@ -1,41 +1,58 @@
 // Select color input
-let selector = document.getElementById("colorpicker").value;
-let submit = document.getElementById("sizePicker");
+
+var height, width, color;
 
 // Select size input
 
 //When size is submitted by the user, call makeGrid()
-submit.addEventListener("click", makeGrid());
 
+$('#sizePicker').submit(function (create) {
+	create.preventDefault();
+	height = $('#inputHeight').val();
+	width = $('#inputWidth').val();
+	pixelGrid(height, width);
+	console.log("height: "+height+" and width: "+width);
+})
 
-function makeGrid() {
+function pixelGrid (lat, long) {
+	$('tr').remove();
 
-let row = document.getElementById("inputWidth").value;
-let col = document.getElementById("inputHeight").value;
-let grid = document.getElementById("pixelCanvas");
+	for (var a = 1; a <= lat; a++) {
+		$('#pixelCanvas').append('<tr id=grid' + a + '></tr>');
 
-for (var c = 0; c < row; c++) {
-	let row = document.createElement("tr");
-	row.id = "row" + c;
-
-	grid.appendChild(row);
-	let lat = document.getElementById("row" + c);
-
-	for (var d = 0; d < col; d++) {
-		let col = document.createElement("td");
-		lat.appendChild(col);
+		for (var b = 1; b <= long; b++) {
+			$('#grid'+ a).append('<td></td>');
+		}
 	}
-  }
-  event.preventDefault();
-};
-
-// painting
-function setColor(color) {
-	color = selector.val();
-	return color;
 }
 
-/* Create rows and columns
+
+
+
+
+
+/*function makeGrid(){
+	let grid = document.getElementById("pixelCanvas");
+
+	for (var i = 1; i < 21; i++) {
+		let lat = document.createElement("tr");
+		lat.id = "row" + i;
+
+		grid.appendchild(lat);
+		let latW = document.getElementById("row" + i);
+
+	for (var cell = 0; cell < 21; cell++) {
+		let theCell = document.createElement("td")
+
+		latW.appendchil(theCell);
+	}
+
+
+	}
+
+}*/
+
+/* <=400te ++ws and columns
 createElement() <tr> <td>- nested loop
 inserRow() insertCell() -- nested loop
 
