@@ -12,7 +12,7 @@ $('#sizePicker').submit(function (create) {
 	width = $('#inputWidth').val();
 	pixelGrid(height, width);
 	console.log("height: "+height+" and width: "+width);
-})
+});
 
 function pixelGrid (lat, long) {
 	$('tr').remove();
@@ -24,33 +24,53 @@ function pixelGrid (lat, long) {
 			$('#grid'+ a).append('<td></td>');
 		}
 	}
+
+	$('td').click(function paint(){
+		color = $('#colorPicker').val();
+		if ($(this).attr('style')) {
+			$(this).removeAttr('style')
+		}else{
+			$(this).attr('style', 'background-color:' + color);
+		}
+	})
 }
 
+/*let gridSize = document.getElementById('sizePicker');
+let grid = document.getElementById('pixelCanvas');
+let colorSelect = document.getElementById('colorPicker');
 
 
+gridSize.addEventListener('click', (e) =>{
+	e.preventDefault();
+long = document.getElementById('inputHeight')
+lat = document.getElementById('inputWidth')
+
+	createGrid(long, lat);
+
+});
+
+//When size is submitted by the user, call makeGrid()
+
+function createGrid(long, lat) {
+
+for (var i = 0 ; i <= long; i++) {
+	let row = grid.insertRow(i);
+
+	for (var j = 0; j <= lat; j++) {
+		let cell = row.insertCell(j);
 
 
-
-/*function makeGrid(){
-	let grid = document.getElementById("pixelCanvas");
-
-	for (var i = 1; i < 21; i++) {
-		let lat = document.createElement("tr");
-		lat.id = "row" + i;
-
-		grid.appendchild(lat);
-		let latW = document.getElementById("row" + i);
-
-	for (var cell = 0; cell < 21; cell++) {
-		let theCell = document.createElement("td")
-
-		latW.appendchil(theCell);
 	}
-
-
-	}
-
+ }
 }*/
+
+
+
+
+
+
+
+
 
 /* <=400te ++ws and columns
 createElement() <tr> <td>- nested loop
