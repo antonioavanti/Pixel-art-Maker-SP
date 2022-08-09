@@ -11,7 +11,7 @@ $('#sizePicker').submit(function (create) {
 	height = $('#inputHeight').val();
 	width = $('#inputWidth').val();
 	pixelGrid(height, width);
-	console.log("height: "+height+" and width: "+width);
+	/*console.log("height: "+height+" and width: "+width);*/
 });
 
 function pixelGrid (lat, long) {
@@ -34,6 +34,8 @@ function pixelGrid (lat, long) {
 		}
 	})
 }
+
+
 
 /*let gridSize = document.getElementById('sizePicker');
 let grid = document.getElementById('pixelCanvas');
